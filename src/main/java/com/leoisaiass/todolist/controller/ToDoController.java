@@ -49,10 +49,8 @@ public class ToDoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ToDoItemDto> updateTaskCompleted(@PathVariable Long id) {
-
-        ToDoItem updatedTask = toDoService.updateTaskCompleted(id);
+        ToDoItem updatedTask = toDoService.markAsCompleted(id);
         ToDoItemDto responseDto = toDoService.convertToDto(updatedTask);
-
         return ResponseEntity.ok(responseDto);
     }
 

@@ -38,7 +38,7 @@ public class ToDoService {
         return repository.save(item);
     }
 
-    public ToDoItem updateTaskCompleted(Long id) {
+    public ToDoItem markAsCompleted(Long id) {
         ToDoItem item = repository.getReferenceById(id);
         item.setCompleted(true);
         repository.save(item);

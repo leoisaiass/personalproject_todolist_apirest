@@ -1,0 +1,7 @@
+CREATE TABLE todo_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(255) NOT NULL,
+    task_description TEXT,
+    completed BOOLEAN DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

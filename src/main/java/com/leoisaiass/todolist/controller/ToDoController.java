@@ -3,7 +3,7 @@ package com.leoisaiass.todolist.controller;
 import com.leoisaiass.todolist.dto.ToDoItemDto;
 import com.leoisaiass.todolist.model.ToDoItem;
 import com.leoisaiass.todolist.service.ToDoService;
-import org.apache.coyote.Response;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +35,8 @@ public class ToDoController {
     }
 
     @PostMapping
-    public ResponseEntity<ToDoItemDto> insertNewTask(@RequestBody ToDoItemDto dto, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ToDoItemDto> insertNewTask(@RequestBody @Valid ToDoItemDto dto,
+                                                     UriComponentsBuilder uriBuilder) {
         ToDoItem savedTask = toDoService.insertTask(dto);
         ToDoItemDto responseDto = toDoService.convertToDto(savedTask);
 

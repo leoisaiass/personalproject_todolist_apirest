@@ -11,8 +11,6 @@ public record ToDoItemDto(
         String taskName,
         @NotBlank
         String taskDescription,
-        @NotBlank
         LocalDateTime createdAt,
-        @NotNull
         Boolean completed) {
 }
